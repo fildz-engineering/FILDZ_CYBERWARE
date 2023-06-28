@@ -14,7 +14,7 @@
 
 import network
 import ubinascii
-from machine import unique_id, Pin
+from machine import unique_id, Pin, PWM
 import fildz_cyberos as cyberos
 
 
@@ -52,7 +52,7 @@ class CYBERWARE:
         # Integrated buzzer on pin 12.
         try:
             from fildz_buzzer import Buzzer
-            self._buzzer = Buzzer(Pin(12, Pin.OUT))
+            self._buzzer = Buzzer(PWM(Pin(12), freq=100, duty=0))
         except ImportError:
             pass
             # print('\n"fildz_buzzer" library is not installed.')
