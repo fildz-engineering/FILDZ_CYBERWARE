@@ -1,4 +1,4 @@
-# FILDZ CYBERWARE
+# FILDZ CYBERWARE API
 
 This compact computer, known as [CYBERWARE](https://www.indiegogo.com/projects/cyberware-next-gen-wireless-prototyping-platform/coming_soon), is powered by the remarkable Wi-Fi microcontroller, [CYBERCORE X1](https://www.indiegogo.com/projects/cybercore-x1-a-tiny-wi-fi-module#/) that is based on ESP8285.
 
