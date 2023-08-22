@@ -10,7 +10,6 @@
 
 # TODO:
 #  1. Cyberware status monitor e.g. "OK", "CONNECTING TO AP", "WRONG PASSWORD", etc.
-#  2. As "ap_name" used to config the AP, make sure user chosen name is valid to use (length, special characters, etc).
 
 import network
 import ubinascii
@@ -28,9 +27,6 @@ class CYBERWARE:
         self._version = 'CYBERWARE_VERSION'
         self._status = 'CYBERWARE_STATUS'
         self._name = '%s-%s' % (self._type, self._id.decode())
-        self._ap_name = None if cyberos.preferences['ap_name'] is None else cyberos.preferences['ap_name']
-        self._ap_color = None if cyberos.preferences['ap_color'] is None else cyberos.preferences['ap_color']
-        self._ap_color_code = None if cyberos.preferences['ap_color_code'] is None else cyberos.preferences['ap_color_code']
         self._mac_private = network.WLAN(network.STA_IF).config('mac')
         self._mac_private_str = ubinascii.hexlify(self._mac_private, ':').decode().upper()
         # We must use bytearray here instead of bytes.
@@ -61,33 +57,9 @@ class CYBERWARE:
         try:
             from fildz_neopixel import NeoPixel
             self._pixel = NeoPixel(Pin(14, Pin.OUT), 1)
-            # Generate AP name and color code on fresh start.
-            if self._ap_name is None:
-                import random
-                color = (
-                    ('R', self._pixel.C_RED),
-                    ('O', self._pixel.C_ORANGE),
-                    ('Y', self._pixel.C_YELLOW),
-                    ('G', self._pixel.C_GREEN),
-                    ('A', self._pixel.C_AQUA),
-                    ('B', self._pixel.C_BLUE),
-                    ('P', self._pixel.C_PURPLE),
-                    ('W', self._pixel.C_WHITE))
-                c1 = color[random.getrandbits(3)]
-                c2 = color[random.getrandbits(3)]
-                c3 = color[random.getrandbits(3)]
-                self._ap_color = (c1[1], c2[1], c3[1])
-                cyberos.preferences['ap_color'] = self._ap_color
-                self._ap_color_code = '%s%s%s' % (c1[0], c2[0], c3[0])
-                cyberos.preferences['ap_color_code'] = self._ap_color_code
-                self._ap_name = '%s-%s' % (self._name, self._ap_color_code)
-                cyberos.preferences['ap_name'] = self._ap_name
-                cyberos.settings.on_save_settings.set()
         except ImportError:
             pass
             # print('\n"fildz_neopixel" library is not installed.')
-
-        cyberos.cyberwares[self._ap_name] = {'events': {}}
 
     ################################################################################
     # Properties
@@ -100,25 +72,6 @@ class CYBERWARE:
     @name.setter
     def name(self, value):
         self._name = value
-
-    # AP name e.g., "BUTTON-02AD9A-YYG".
-    @property
-    def ap_name(self):
-        return self._ap_name
-
-    @ap_name.setter
-    def ap_name(self, value):
-        self._ap_name = value
-
-    # AP color e.g., ((255, 255, 0), (255, 255, 0), (0, 255, 0))
-    @property
-    def ap_color(self):
-        return self._ap_color
-
-    # AP color code e.g., "YYG".
-    @property
-    def ap_color_code(self):
-        return self._ap_color_code
 
     # Fullname displays the entire name of the cyberware e.g., "OLED DISPLAY 0.96” 128x64 REV 1.0".
     @property
@@ -187,7 +140,7 @@ class CYBERWARE:
         return self._buzzer
 
     # Single WS2812 that is integrated into every cyberware.
-    # Primarily used to identify the module AP via blinking colors (ap_color_code).
+    # Primarily used to identify the module AP via blinking colors.
     @property
     def pixel(self):
         return self._pixel
