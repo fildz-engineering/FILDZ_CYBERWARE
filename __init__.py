@@ -38,28 +38,16 @@ class CYBERWARE:
         # Cyberware devices and sensors go here.
         #
         # Integrated power button on pin 13.
-        try:
-            from fildz_button import Button
-            self._power_button = Button(Pin(13, Pin.OUT))
-        except ImportError:
-            pass
-            # print('\n"fildz_button" library is not installed.')
+        from fildz_button import Button
+        self._power_button = Button(Pin(13, Pin.OUT))
 
         # Integrated buzzer on pin 12.
-        try:
-            from fildz_buzzer import Buzzer
-            self._buzzer = Buzzer(PWM(Pin(12), freq=100, duty=0))
-        except ImportError:
-            pass
-            # print('\n"fildz_buzzer" library is not installed.')
+        from fildz_buzzer import Buzzer
+        self._buzzer = Buzzer(PWM(Pin(12), freq=100, duty=0))
 
         # Integrated WS2812 (NeoPixel) on pin 14.
-        try:
-            from fildz_neopixel import NeoPixel
-            self._pixel = NeoPixel(Pin(14, Pin.OUT), 1)
-        except ImportError:
-            pass
-            # print('\n"fildz_neopixel" library is not installed.')
+        from fildz_neopixel import NeoPixel
+        self._pixel = NeoPixel(Pin(14, Pin.OUT), 1)
 
     ################################################################################
     # Properties
