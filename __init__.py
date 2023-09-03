@@ -14,15 +14,12 @@
 import network
 import ubinascii
 from machine import unique_id, Pin, PWM
-import fildz_cyberos as cyberos
 
 
 class CYBERWARE:
     def __init__(self):
-        self._fullname = 'OLED DISPLAY 0.96" 128x64 REV 1.0'
-        self._type = 'DISPLAY'
-        # self._fullname = 'GENERIC BUTTON REV 1.0'
-        # self._type = 'BUTTON'
+        self._fullname = 'GENERIC CYBERWARE'
+        self._type = 'CYBERWARE'
         self._id = ubinascii.hexlify(unique_id()[:3]).upper()  # ESP8266/ESP8285 returns e.g. b'\x0f\x88\x9a\x00'
         self._version = 'CYBERWARE_VERSION'
         self._status = 'CYBERWARE_STATUS'
