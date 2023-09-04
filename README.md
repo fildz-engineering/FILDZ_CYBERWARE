@@ -22,8 +22,7 @@ We already have a few prototypes built:
 ## Setup
 
 1. Download and extract .zip file contents to "fildz_cyberware" folder.
-2. "fildz_cyberware" folder should contain only `__init__.py` file.
-3. Upload "fildz_cyberware" folder to your MicroPython powered device.
+2. Upload "fildz_cyberware" folder to your MicroPython powered device.
 
 ## Requirements
 
