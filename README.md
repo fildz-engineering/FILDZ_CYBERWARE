@@ -21,8 +21,8 @@ We already have a few prototypes built:
 
 ## Setup
 
-1. Download and extract .zip file contents to "fildz_cyberware" folder.
-2. Upload "fildz_cyberware" folder to your MicroPython powered device.
+1. Download and extract .zip file contents to fildz_cyberware folder.
+2. Upload fildz_cyberware folder to your MicroPython powered device.
 
 ## Requirements
 
