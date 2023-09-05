@@ -59,17 +59,17 @@ class CYBERWARE:
     def fullname(self):
         return self._fullname
 
-    # Defines the cyberware type e.g., "DISPLAY".
+    # Defines the cyberware type e.g., "BUTTON".
     @property
     def type(self):
         return self._type
 
-    # Unique ID of the cyberware e.g., "OF889A".
+    # Unique ID of the cyberware e.g., b'OF889A'.
     @property
     def id(self):
         return self._id
 
-    # Version of the cyberware e.g., "2022.05.03".
+    # Version of the cyberware e.g., "1.0".
     @property
     def version(self):
         return self._version
@@ -84,7 +84,7 @@ class CYBERWARE:
     def status(self, value):
         self._status = value
 
-    # Private MAC address e.g., "b'\x9c\x9c\x1f\xXX\xXX\xXX'".
+    # Private MAC address e.g., b'\x9c\x9c\x1f\xXX\xXX\xXX'.
     # This MAC address is set on the STA interface and is used for communication between paired cyberwares.
     @property
     def mac_private(self):
@@ -95,7 +95,7 @@ class CYBERWARE:
     def mac_private_str(self):
         return self._mac_private_str
 
-    # Public MAC address b'\x9e\x9c\x1f\x00\x00\x00'.
+    # Public MAC address bytearray(b'\x9e\x9c\x1f\x00\x00\x00').
     # This MAC address is hardcoded to every cyberware and set on the AP interface.
     # It is used for just one thing - pairing.
     # When cyberware starts to send pairing requests, it is sending them to a public MAC address.
