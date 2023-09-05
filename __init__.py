@@ -54,10 +54,6 @@ class CYBERWARE:
     def name(self):
         return self._name
 
-    @name.setter
-    def name(self, value):
-        self._name = value
-
     # Fullname displays the entire name of the cyberware e.g., "OLED DISPLAY 0.96” 128x64 REV 1.0".
     @property
     def fullname(self):
