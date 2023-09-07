@@ -22,6 +22,7 @@ class CYBERWARE:
         self._type = 'CYBERWARE'
         self._id = ubinascii.hexlify(unique_id()[:3]).upper()  # ESP8266/ESP8285 returns e.g. b'\x0f\x88\x9a\x00'
         self._version = 'CYBERWARE_VERSION'
+        self._model = 'CYBERWARE_MODEL'
         self._status = 'CYBERWARE_STATUS'
         self._name = '%s-%s' % (self._type, self._id.decode())
         self._mac_private = network.WLAN(network.STA_IF).config('mac')
@@ -73,6 +74,11 @@ class CYBERWARE:
     @property
     def version(self):
         return self._version
+
+    # Model of the cyberware e.g., "FCW-12345".
+    @property
+    def model(self):
+        return self._model
 
     # Display real-time status of the cyberware e.g., "OK", "PAIRING".
     # Status is displayed when the user is connected to cyberware via the web interface.
