@@ -26,13 +26,13 @@ We already have a few prototypes built:
 
 ## Requirements
 
-1. FILDZ custom build of [MicroPython](https://github.com/fildz-official/micropython/tree/cyberware).
-2. Libraries [fildz_cyberos](https://github.com/fildz-official/FILDZ_CYBEROS), [fildz_button](https://github.com/fildz-official/FILDZ_CYBEROS_Button), [fildz_buzzer](https://github.com/fildz-official/FILDZ_CYBEROS_Buzzer) and [fildz_neopixel](https://github.com/fildz-official/FILDZ_CYBEROS_NeoPixel).
-3. (Optional) APIs [fildz_button_api](https://github.com/fildz-official/FILDZ_CYBEROS_Button_API).
+1. FILDZ custom build of [MicroPython](https://github.com/fildz-engineering/micropython/tree/cyberware).
+2. Libraries [fildz_cyberos](https://github.com/fildz-engineering/FILDZ_CYBEROS), [fildz_button](https://github.com/fildz-engineering/FILDZ_CYBEROS_Button), [fildz_buzzer](https://github.com/fildz-engineering/FILDZ_CYBEROS_Buzzer) and [fildz_neopixel](https://github.com/fildz-engineering/FILDZ_CYBEROS_NeoPixel).
+3. (Optional) APIs [fildz_button_api](https://github.com/fildz-engineering/FILDZ_CYBEROS_Button_API).
 
 ## Documentation
 
-[CYBERWARE API Wiki](https://github.com/fildz-official/FILDZ_CYBERWARE/wiki)
+[CYBERWARE API Wiki](https://github.com/fildz-engineering/FILDZ_CYBERWARE/wiki)
 
 ## Contributing
 
